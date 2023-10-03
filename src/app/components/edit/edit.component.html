@@ -1,0 +1,17 @@
+<p>Adatmódosítás</p>
+
+
+<div class="mb-3">
+    <label class="form-label">Város</label>
+    <input type="text" class="form-control" [(ngModel)]="aktualis.city">
+</div>
+<div class="mb-3">
+    <label class="form-label">Amihez értesz</label>
+    <input type="text" class="form-control" [(ngModel)]="aktualis.skills">
+</div>
+<div class="mb-3">
+    <label class="form-label">Instrukció</label>
+    <input type="text" class="form-control" [(ngModel)]="aktualis.introduction">
+</div>
+
+<button (click)="service.update(aktualis)" class="btn btn-primary">Módosítások Mentése</button>

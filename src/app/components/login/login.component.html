@@ -1,0 +1,13 @@
+<h1>Belépés</h1>
+
+
+<div class="mb-3">
+    <label class="form-label">Felhasználónév</label>
+    <input type="text" class="form-control" [(ngModel)]="felhasznalo.username">
+</div>
+<div class="mb-3">
+    <label class="form-label">Jelszó</label>
+    <input type="password" class="form-control" [(ngModel)]="felhasznalo.password">
+</div>
+<button (click)="login()" class="btn btn-primary">Login</button>
+

@@ -1,0 +1,35 @@
+<h1>Lista a munkásokról!</h1>
+
+<select class="form-select" [(ngModel)]="adottnev" (change)="service.read(adottnev)">
+    <option value="{{x}}" *ngFor="let x of service.getSellers()">{{x}}</option>
+</select>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Név</th>
+            <th scope="col">Tudás</th>
+            <th scope="col">Instrukció</th>
+
+            <th scope="col">Felhasználó név</th>
+            <th scope="col">Hirdetés ID</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of service.munkak">
+            <td>{{x.owner?.lastName}} {{x.owner?.firstName}}</td>
+            <td>{{x.skills}}</td>
+            <td>{{x.introduction}}</td>
+            <td>{{x.owner?.userName}}</td>
+            <td>{{x.id}}</td>
+        </tr>
+        <br>
+    </tbody>
+
+</table>
+<img *ngIf="service.munkak.length == 0"
+ style="height: 100px;" src="https://www.superiorlawncareusa.com/wp-content/uploads/2020/05/loading-gif-png-5.gif" />
+
+

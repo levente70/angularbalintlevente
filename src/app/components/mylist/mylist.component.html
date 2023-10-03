@@ -1,0 +1,36 @@
+<h1>Lista a munkáidról!</h1>
+  
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Név</th>
+            <th scope="col">Tudás</th>
+            <th scope="col">Instukció</th>
+            <th scope="col">Felhasználónév</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of service.munkaId">
+            <td>{{x.owner?.lastName}} {{x.owner?.firstName}}</td>
+            <td>{{x.skills}}</td>
+            <td>{{x.introduction}}</td>
+            <td>{{x.owner?.userName}}</td>
+ 
+
+          <td>
+                <a routerLink="/edit/{{x.id}}" class="btn btn-sm btn-warning" *ngIf="x.owner != null && x.owner?.userName == auth.getCurrentUser()">Módosít</a>
+                <button (click)="service.delete(x.id)"
+                class="btn btn-sm btn-danger">Delete</button>
+            </td>
+           
+        </tr>
+        <br>
+    </tbody>
+
+</table>
+
+<img *ngIf="service.munkak.length == 0"
+ style="height: 100px;" src="https://www.superiorlawncareusa.com/wp-content/uploads/2020/05/loading-gif-png-5.gif" />
+
+
+
